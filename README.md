@@ -23,3 +23,14 @@ Enable authentication in swagger UI for azure AD
       </li>   
    </ul>
 </p>
+<h2>Code changes</h2>
+<p>
+Go to <a href="https://github.com/Anish407/SwaggerAuthenticationWithAzureAd_Dotnet6/blob/master/SwaggerAzureADAuthentication/appsettings.json"> Appsettings.json</a>. We have defined 2 sections. One for the Web Api and one for the swagger App. The swagger app will ask the user to sign in and will aquire a token on behalf of the user and will add the token to the authorization header as a bearer token. This will be sent to the web api which will have azure ad authentication configured. So only a user with a valid token will be able to access the WeatherForecast controller. 
+</p>
+<p>
+Install Microsoft.Identity.Web from nuget package. This package will have all the needed methods to configure azure AD authentication.
+ Inside <a href="https://github.com/Anish407/SwaggerAuthenticationWithAzureAd_Dotnet6/blob/master/SwaggerAzureADAuthentication/Program.cs">Program.cs</a> at LN: 13 we have configured azure AD authentication based on the AzureAd section inside <a href="https://github.com/Anish407/SwaggerAuthenticationWithAzureAd_Dotnet6/blob/master/SwaggerAzureADAuthentication/appsettings.json">appsettings.json</a>
+</p>
+
+<h1>OUTPUT</h1>
+<img src="https://github.com/Anish407/SwaggerAuthenticationWithAzureAd_Dotnet6/blob/master/SwaggerAzureADAuthentication/Images/final.gif"/>
