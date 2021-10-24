@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31606.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerAzureADAuthentication", "SwaggerAzureADAuthentication\SwaggerAzureADAuthentication.csproj", "{D48764DA-16AB-4C53-85A7-D7549B75207C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerAzureADAuthentication", "SwaggerAzureADAuthentication\SwaggerAzureADAuthentication.csproj", "{D48764DA-16AB-4C53-85A7-D7549B75207C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
