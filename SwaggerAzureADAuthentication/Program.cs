@@ -10,6 +10,7 @@ var conf = builder.Configuration;
 builder.Services.AddControllers();
 builder.Services.AddAuthorization();
 
+// enable azure ad authentication based on the AzureAd section inside appsettings.json 
 builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration);
 
 
@@ -32,7 +33,7 @@ builder.Services.AddSwaggerGen(c =>
                 {
                     //scope that the web api exposes--  description that will appear on the swagger window
                     // replace the client id
-                    { "api://webappClientid/read", "read the api" }
+                    { $"api://{builder.Configuration["AzureAD:ClientId"]}/read", "read the api" }
                 }
             }
         }
@@ -45,7 +46,7 @@ builder.Services.AddSwaggerGen(c =>
                 Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "oauth2" }
             },
              //scope that the web api exposes
-            new[] { "api://webappClientid/read" }
+            new[] { $"api://{builder.Configuration["AzureAD:ClientId"]}/read" }
         }
     });
 });
