@@ -16,5 +16,23 @@ stages:
   - stage: Build
     displayName: Build the code
     jobs:
-      - job:  
-       
+      - job:  Build
+        continueOnError: false
+        steps:
+        - task: UseDotNet@2
+          inputs:
+            version: '6.0.x'
+            includePreviewVersions: false
+        
+        - task: DotNetCoreCLI@2
+          displayName: 'Restore nuget packages'
+          inputs:
+            command: 'restore'
+            projects: '**/*.csproj'
+            feedsToUse: 'select'
+        
+        - task: DotNetCoreCLI@2
+          inputs:
+            command: 'build'
+            arguments: '--configuration $(buildConfiguration)'
+          displayName: 'dotnet build $(buildConfiguration)'
